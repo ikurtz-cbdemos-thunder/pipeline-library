@@ -1,0 +1,10 @@
+kind: Pod
+metadata:
+  name: octo-cli
+spec:
+  containers:
+  - name: octo-cli
+    image: octopusdeploy/octo:latest
+    command:
+    - cat
+    tty: true
