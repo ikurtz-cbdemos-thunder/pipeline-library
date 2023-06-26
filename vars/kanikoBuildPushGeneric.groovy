@@ -1,6 +1,6 @@
 // vars/kanikoBuildPush.groovy
-def call(String imageName, String imageTag = env.BUILD_NUMBER, String nexusRepo = "ikurtz-cbdemos-thunder-registry", String dockerFile="Dockerfile", Closure body) {
-  def dockerReg = "https://nexus.preview.cb-demos.io/repository/${nexusRepo}"
+def call(String imageName, String imageTag = env.BUILD_NUMBER, String gcpProject = "core-flow-research", String dockerFile="Dockerfile", Closure body) {
+  def dockerReg = "gcr.io/${gcpProject}"
   def label = "kaniko-${UUID.randomUUID().toString()}"
   def podYaml = libraryResource 'podtemplates/kaniko.yml'
   podTemplate(name: 'kaniko', label: label, yaml: podYaml) {
